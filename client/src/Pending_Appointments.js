@@ -1,8 +1,8 @@
 import React,{useState,useEffect} from 'react'
 import Nav_doctor from './Nav_doctor'
 import Card from 'react-bootstrap/Card'
-import Button from 'react-bootstrap/Button'
 import './pending.css'
+import Button from 'react-bootstrap/Button'
 import Axios from 'axios'
 function Pending_Appointments(){
 const did=localStorage.getItem('id');

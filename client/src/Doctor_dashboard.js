@@ -18,7 +18,7 @@ import doctor_img from './doctor_img.jpg';
 
 function TabPanel(props) {
     const { children, value, index, ...other } = props;
-// console.log(localStorage.getItem('id'));
+    // console.log(localStorage.getItem('id'));
     return (
         <div
             role="tabpanel"
@@ -61,7 +61,7 @@ function Doctor_dashboard() {
     const [name, setName] = useState("");
     const [email, setEmail] = useState("");
     const classes = useStyles();
-    const [id,setId]=useState(0);
+    const [id, setId] = useState(0);
     const [value, setValue] = React.useState(0);
     const [pending, setPending] = useState(0);
     const [confirmed, setConfirmed] = useState(0);
@@ -72,18 +72,19 @@ function Doctor_dashboard() {
     useEffect(() => {
         const token = localStorage.getItem('token');
         const user = localStorage.getItem('user');
-       // console.log(token);
+        // console.log(token);
         setEmail(user);
-        
+
         Axios.post('http://localhost:3001/user/doctor', { email: user }).then((resp) => {
-          //  console.log(resp.data);
+            //  console.log(resp.data);
             setId(localStorage.getItem("id"));
-            console.log("id",id);
+            console.log("id", id);
             setName(resp?.data[0]?.name);
-            console.log("name",name);
+            console.log("name", name);
         })
         Axios.post('http://localhost:3001/user/doctor/pending', { doctor_id: id }).then((response) => {
             setPending(response?.data?.length)
+
 
         })
         Axios.post('http://localhost:3001/user/doctor/confirmed', { doctor_id: id }).then((response) => {
@@ -102,7 +103,7 @@ function Doctor_dashboard() {
                     <Tab label="Upcoming Appointment" {...a11yProps(1)} />
                     <Tab label="Past Appointment" {...a11yProps(2)} />
                     <Tab label="Video Call" {...a11yProps(3)} />
-                    
+
                 </Tabs>
             </AppBar>
             <TabPanel value={value} index={0}>
@@ -124,25 +125,23 @@ function Doctor_dashboard() {
                                 <p style={{ fontSize: "20px", fontFamily: "Times New Roman", }}> Email: {email}</p>
                                 <p style={{ fontSize: "20px", fontFamily: "Times New Roman", }}> Pending Appointments: {pending}</p>
                                 <p style={{ fontSize: "20px", fontFamily: "Times New Roman", }}> Confirmed Appointments: {confirmed}</p>
-
                             </Card.Text>
-
                         </Card.Body>
                     </Card>
 
                 </div>
-</TabPanel>
+            </TabPanel>
             <TabPanel value={value} index={1}>
-               <Doc_upcoming id={id}  />
-</TabPanel>
+                <Doc_upcoming id={id} />
+            </TabPanel>
             <TabPanel value={value} index={2}>
                 <Doc_past id={id} />
-</TabPanel>
+            </TabPanel>
             <TabPanel value={value} index={3}>
-            <Link to='/videoCall' ><Button>
-                            Video Call
+                <Link to='/videoCall' ><Button>
+                    Video Call
                         </Button></Link>
-</TabPanel>
+            </TabPanel>
         </div>
     )
 }
