@@ -122,7 +122,7 @@ function Doctor_dashboard() {
                             <Card.Text>
                                 <p style={{ fontSize: "20px", fontFamily: "Times New Roman", }}> Name: {name}</p>
                                 <p style={{ fontSize: "20px", fontFamily: "Times New Roman", }}> Email: {email}</p>
-                                <p style={{ fontSize: "20px", fontFamily: "Times New Roman", }}> Pending Appointments: {pending-confirmed}</p>
+                                <p style={{ fontSize: "20px", fontFamily: "Times New Roman", }}> Pending Appointments: {pending}</p>
                                 <p style={{ fontSize: "20px", fontFamily: "Times New Roman", }}> Confirmed Appointments: {confirmed}</p>
 
                             </Card.Text>
@@ -138,7 +138,6 @@ function Doctor_dashboard() {
             <TabPanel value={value} index={2}>
                 <Doc_past id={id} />
 </TabPanel>
-          
             <TabPanel value={value} index={3}>
             <Link to='/videoCall' ><Button>
                             Video Call

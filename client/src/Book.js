@@ -249,6 +249,8 @@ function Book() {
                         <Card.Text><h6 id="btnh"><Button onClick={() => {setOpen8(!open8); Handle8('Psychiatrist');}}
                             aria-controls="example-collapse-text8"
                             aria-expanded={open8}> Show</Button></h6>
+
+                    
                             <Collapse in={open8}>
         <div id="example-collapse-text8">
             {
