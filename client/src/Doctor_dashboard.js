@@ -91,7 +91,7 @@ function Doctor_dashboard() {
 
         })
 
-    }, [id]);
+    }, []);
     return (
         <div>
             <h1>hello</h1>
@@ -101,7 +101,8 @@ function Doctor_dashboard() {
                     <Tab label="Profile" {...a11yProps(0)} />
                     <Tab label="Upcoming Appointment" {...a11yProps(1)} />
                     <Tab label="Past Appointment" {...a11yProps(2)} />
-                    <Tab label="Video Call" {...a11yProps(4)} />
+                    <Tab label="Video Call" {...a11yProps(3)} />
+                    
                 </Tabs>
             </AppBar>
             <TabPanel value={value} index={0}>
@@ -121,7 +122,7 @@ function Doctor_dashboard() {
                             <Card.Text>
                                 <p style={{ fontSize: "20px", fontFamily: "Times New Roman", }}> Name: {name}</p>
                                 <p style={{ fontSize: "20px", fontFamily: "Times New Roman", }}> Email: {email}</p>
-                                <p style={{ fontSize: "20px", fontFamily: "Times New Roman", }}> Pending Appointments: {pending}</p>
+                                <p style={{ fontSize: "20px", fontFamily: "Times New Roman", }}> Pending Appointments: {pending-confirmed}</p>
                                 <p style={{ fontSize: "20px", fontFamily: "Times New Roman", }}> Confirmed Appointments: {confirmed}</p>
 
                             </Card.Text>
@@ -137,10 +138,8 @@ function Doctor_dashboard() {
             <TabPanel value={value} index={2}>
                 <Doc_past id={id} />
 </TabPanel>
+          
             <TabPanel value={value} index={3}>
-                Requests
-</TabPanel>
-            <TabPanel value={value} index={4}>
             <Link to='/videoCall' ><Button>
                             Video Call
                         </Button></Link>
