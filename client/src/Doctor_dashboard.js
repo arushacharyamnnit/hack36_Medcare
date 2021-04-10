@@ -91,7 +91,7 @@ function Doctor_dashboard() {
 
         })
 
-    }, []);
+    }, [id]);
     return (
         <div>
             <h1>hello</h1>
